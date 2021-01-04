@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 保证唯一 我这里填写的是映射类的名字 xml文件名和映射类的名字是一样的-->
+<mapper namespace="com.arithmeticjia.zuul.dao.UserDao">
+    <!--id是映射类中的函数名字 返回类型是方法返回值中实体类型-->
+    <!--当我们调用映射类的方法时候，实际上会来执行这句sql-->
+    <select id="findUserById" resultType="com.arithmeticjia.zuul.pojo.User">
+      SELECT * FROM yp_user WHERE id = #{Id}
+    </select>
+
+    <select id="findUserByUsername" resultType="com.arithmeticjia.zuul.pojo.User">
+      SELECT * FROM yp_user WHERE username = #{Username}
+    </select>
+
+</mapper>
