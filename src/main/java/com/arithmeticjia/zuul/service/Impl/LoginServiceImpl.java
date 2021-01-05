@@ -3,9 +3,10 @@ import com.arithmeticjia.zuul.dao.LoginDao;
 import com.arithmeticjia.zuul.pojo.User;
 import com.arithmeticjia.zuul.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Service
+@Repository("LoginDao")
 public class LoginServiceImpl implements LoginService {
     @Autowired
     private LoginDao logindao;

@@ -1,8 +1,12 @@
 package com.arithmeticjia.zuul.service;
 
-import org.springframework.stereotype.Service;
-
-@Service("LoginService")
+/**
+ * @author ArithmeticJia
+ * @version 1.0
+ * @date 2021/1/5 4:15 下午
+ */
 public interface LoginService {
     Integer toLogin(String username,String password);
 }
+
+

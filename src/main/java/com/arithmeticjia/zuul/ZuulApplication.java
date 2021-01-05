@@ -9,8 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableZuulProxy
-@MapperScan(basePackages = "com.arithmticjia.zuul.dao")
-@ComponentScan(basePackages = { "com.arithmeticjia.zuul.dao" })
+@ComponentScan(basePackages = { "com.arithmeticjia.zuul.*" })
 public class ZuulApplication {
 
     public static void main(String[] args) {

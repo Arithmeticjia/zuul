@@ -1,5 +1,4 @@
 package com.arithmeticjia.zuul.api;
-import com.arithmeticjia.zuul.api.*;
 
 public class CommonResult<T> {
     private long code;
