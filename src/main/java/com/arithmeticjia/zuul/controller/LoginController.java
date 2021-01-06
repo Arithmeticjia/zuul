@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@RequestMapping(value = "/api/v1")
 public class LoginController {
     @Autowired
     private LoginService loginservice;
@@ -22,7 +23,7 @@ public class LoginController {
     @Autowired
     TokenService tokenService;
 
-    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public CommonResult login(@RequestBody User user) {
         System.out.print(user);
         String username = user.getUsername();
