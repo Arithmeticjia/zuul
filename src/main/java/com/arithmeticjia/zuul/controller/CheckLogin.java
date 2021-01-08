@@ -10,12 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
-@RequestMapping("/hello")
-public class Hello {
+@RequestMapping(value = "/api/v1")
+public class CheckLogin {
 
     @UserLoginToken
-    @GetMapping("/springboot")
-    public String hello() {
+    @GetMapping("/check-login")
+    public String checkLogin() {
         return "HelloWord";
     }
 }
