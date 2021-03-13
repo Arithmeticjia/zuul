@@ -23,9 +23,8 @@ public class GetPostList {
     @Autowired
     PostService postService;
 
-//    @UserLoginToken
     @GetMapping("/post/list")
-    public CommonResult PostList() {
+    public CommonResult getPostList() {
         try {
             List<PostCategory> postall = postService.getPostAll();
             return CommonResult.success(postall);
