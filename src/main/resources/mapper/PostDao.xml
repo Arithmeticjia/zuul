@@ -10,6 +10,9 @@
         <id property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="body" column="body"/>
+        <result property="authorname" column="authorname"/>
+        <result property="views" column="views"/>
+        <result property="greats" column="greats"/>
         <result property="category" column="category"/>
         <collection property="tags" ofType="com.arithmeticjia.zuul.pojo.Tag">
             <id property="id" column="tid"/>
@@ -21,12 +24,16 @@
             a.id,
             a.title,
             a.body,
-            b.name as category,
+            u.name as authorname,
+            a.views,
+            a.greats,
+            b.name AS category,
             c.id AS tid,
             c.name AS tname
         FROM
             blog_category AS b
                 JOIN blog_articles AS a ON a.category_id = b.id
+                JOIN blog_bloguser AS u ON a.authorname_id = u.id
                 JOIN blog_articles_tags AS m ON a.id = m.articles_id
                 JOIN blog_tag AS c ON c.id = m.tag_id
         WHERE
