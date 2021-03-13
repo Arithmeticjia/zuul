@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 保证唯一 我这里填写的是映射类的名字 xml文件名和映射类的名字是一样的-->
+<mapper namespace="com.arithmeticjia.zuul.dao.PostDao">
+    <!--id是映射类中的函数名字 返回类型是方法返回值中实体类型-->
+    <!--当我们调用映射类的方法时候，实际上会来执行这句sql-->
+    <resultMap type="com.arithmeticjia.zuul.pojo.PostCategory" id="postMap">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="body" column="body"/>
+        <result property="category" column="category"/>
+        <collection property="tags" ofType="com.arithmeticjia.zuul.pojo.Tag">
+            <id property="id" column="tid"/>
+            <result property="name" column="tname"/>
+        </collection>
+    </resultMap>
+    <select id="getPostAll" resultType="com.arithmeticjia.zuul.pojo.PostCategory" resultMap="postMap">
+        SELECT
+            a.id,
+            a.title,
+            a.body,
+            b.name as category,
+            c.id AS tid,
+            c.NAME AS tname
+        FROM
+            blog_category AS b
+                JOIN blog_articles AS a ON a.category_id = b.id
+                JOIN blog_articles_tags AS m ON a.id = m.articles_id
+                JOIN blog_tag AS c ON c.id = m.tag_id
+    </select>
+
+</mapper>

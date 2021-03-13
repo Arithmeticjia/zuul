@@ -25,7 +25,6 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public CommonResult login(@RequestBody User user) {
-        System.out.print(user);
         String username = user.getUsername();
         String password = user.getPassword();
         Integer userlogin = loginservice.toLogin(username, password);

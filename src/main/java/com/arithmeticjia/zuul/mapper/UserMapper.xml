@@ -10,6 +10,18 @@
       select * from yp_user
     </select>
 
+    <select id="getPostAll" resultType="com.arithmeticjia.zuul.pojo.Post">
+        SELECT
+            *
+        FROM
+            `blog_articles`
+        WHERE
+            `blog_articles`.`status` = '有效'
+        ORDER BY
+            `blog_articles`.`timestamp` DESC
+            LIMIT 10
+    </select>
+
     <!--插入数据-->
     <insert id="addUser" parameterType="com.arithmeticjia.zuul.pojo.User">
         INSERT INTO tb_user (
