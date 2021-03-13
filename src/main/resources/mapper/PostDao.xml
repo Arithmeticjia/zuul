@@ -23,12 +23,14 @@
             a.body,
             b.name as category,
             c.id AS tid,
-            c.NAME AS tname
+            c.name AS tname
         FROM
             blog_category AS b
                 JOIN blog_articles AS a ON a.category_id = b.id
                 JOIN blog_articles_tags AS m ON a.id = m.articles_id
                 JOIN blog_tag AS c ON c.id = m.tag_id
+        WHERE
+            a.status = '有效'
     </select>
 
 </mapper>
