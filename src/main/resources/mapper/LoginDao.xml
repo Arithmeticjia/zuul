@@ -6,8 +6,8 @@
 <mapper namespace="com.arithmeticjia.zuul.dao.LoginDao">
     <!--id是映射类中的函数名字 返回类型是方法返回值中实体类型-->
     <!--当我们调用映射类的方法时候，实际上会来执行这句sql-->
-    <select id="toLogin" resultType="java.lang.Integer" parameterType="com.arithmeticjia.zuul.pojo.User">
-      SELECT count(*) FROM yp_user WHERE username = #{username} and password = #{password}
+    <select id="getPasswordByName" parameterType="java.lang.String" resultType="String">
+      SELECT password FROM blogproject_user WHERE username = #{username}
     </select>
 
 </mapper>

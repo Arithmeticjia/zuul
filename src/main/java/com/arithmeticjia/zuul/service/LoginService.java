@@ -6,7 +6,7 @@ package com.arithmeticjia.zuul.service;
  * @date 2021/1/5 4:15 下午
  */
 public interface LoginService {
-    Integer toLogin(String username,String password);
+    String getPasswordByName(String username);
 }
 
 

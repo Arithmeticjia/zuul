@@ -11,7 +11,11 @@
     </select>
 
     <select id="findUserByUsername" resultType="com.arithmeticjia.zuul.pojo.User">
-      SELECT * FROM yp_user WHERE username = #{Username}
+      SELECT
+          *
+      FROM
+          blogproject_user
+      WHERE username = #{Username}
     </select>
 
 </mapper>

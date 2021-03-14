@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.arithmeticjia.zuul.utils.Pbkdf2Sha256;
 
 
 @RestController
@@ -27,8 +28,9 @@ public class LoginController {
     public CommonResult login(@RequestBody User user) {
         String username = user.getUsername();
         String password = user.getPassword();
-        Integer userlogin = loginservice.toLogin(username, password);
-        if(username != null && password != null && userlogin == 1) {
+        String passwordEncode = loginservice.getPasswordByName(username);
+        boolean isValid = Pbkdf2Sha256.checkPassword(password, passwordEncode);
+        if(username != null && password != null && isValid) {
             User userForBase = userService.findByUsername(username);
             String token = tokenService.getToken(userForBase);
             String res = "token=" + token + "&" + "username=" + userForBase.getUsername();

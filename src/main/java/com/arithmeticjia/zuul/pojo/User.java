@@ -7,13 +7,8 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private String name;
-    private int age;
-    private int sex;
-    private Date birthday;
-    private Date created;
-    private Date updated;
-    private boolean enabled;
+    private Date lastLogin;
+    private boolean isActive;
 
     @Override
     public String toString() {
@@ -21,96 +16,49 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", sex=" + sex +
-                ", birthday='" + birthday + '\'' +
-                ", created=" + created +
-                ", updated=" + updated +
-                ", enabled=" + enabled +
+                ", last_login='" + lastLogin + '\'' +
+                ", is_active=" + isActive +
                 '}';
     }
 
-
     public int getId() {
         return id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public int getSex() {
-        return sex;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public Date getCreated() {
-        return created;
-    }
-
-    public Date getUpdated() {
-        return updated;
-    }
-
-    public boolean getEnabled() {
-        return enabled;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setUsername(String userName) {
-        this.username = userName;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Date getLastLogin() {
+        return lastLogin;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
-    public void setSex(int sex) {
-        this.sex = sex;
+    public boolean isActive() {
+        return isActive;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setActive(boolean active) {
+        isActive = active;
     }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
-    public void setUpdated(Date updated) {
-        this.updated = updated;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
 }
 
