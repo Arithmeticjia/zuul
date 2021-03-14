@@ -3,6 +3,9 @@ package com.arithmeticjia.zuul.pojo;
 
 import java.util.Date;
 
+/**
+ * @author Arithmetic
+ */
 public class User {
     private int id;
     private String username;
